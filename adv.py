@@ -33,6 +33,13 @@ traversal_path = []
 # Create dict with reverse for each direction
 reverse_directions = {'n': 's', 's': 'n', 'e':'w', 'w':'e'}
 
+# Create dict for transversal graph
+traversalGraph = {}
+
+# initialize stack, previous room and prev cardinal
+stack = Stack()
+prev_room = None
+prev_cardinal = None
 
 
 
