@@ -65,6 +65,9 @@ while len(traversalGraph) < len(room_graph):
     prev_room = currentRoom
 
     next_room = False
+
+    # for each room hold if there is a movement from that room
+    movement = False
    
     for exit_cardinal, room in traversalGraph[currentRoom].items():
         # if it is unexplored
