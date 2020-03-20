@@ -41,6 +41,17 @@ stack = Stack()
 prev_room = None
 prev_cardinal = None
 
+while len(traversalGraph) < len(room_graph):
+
+    # get player current room
+    currentRoom = player.current_room.id
+
+    # if the room has not been transvered
+    if currentRoom not in traversalGraph:
+        # get all the exits in the room and set it to '?'
+        exits = {direction: '?' for direction in player.current_room.get_exits()}
+        # add the rooms exits to the traversal room 
+        traversalGraph[currentRoom] = exits
 
 
 # TRAVERSAL TEST
