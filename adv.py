@@ -65,6 +65,26 @@ while len(traversalGraph) < len(room_graph):
     prev_room = currentRoom
 
     next_room = False
+   
+    for exit_cardinal, room in traversalGraph[currentRoom].items():
+        # if it is unexplored
+        if room == "?":
+            prev_cardinal = exit_cardinal
+            stack.push(exit_cardinal)
+            traversal_path.append(exit_cardinal)
+            # move to next room
+            # next_room = True
+            player.travel(exit_cardinal)
+            # set there was a movement
+            movement = True
+            break
+    # if there was no place to go
+    if not movement:
+        # go back the earlier moved direction
+        exit_cardinal = reverse_directions[stack.pop()]
+        traversal_path.append(exit_cardinal)
+        prev_cardinal = exit_cardinal
+        player.travel(exit_cardinal)
 
 
 # TRAVERSAL TEST
