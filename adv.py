@@ -53,6 +53,19 @@ while len(traversalGraph) < len(room_graph):
         # add the rooms exits to the traversal room 
         traversalGraph[currentRoom] = exits
 
+    # if there is a previous room
+    if prev_room:
+        # update the previous room traveled cardinal to the current room id
+        traversalGraph[prev_room][prev_cardinal] = currentRoom
+        # get the reverse of the traveled cardinal
+        reverse_cardinal = reverse_directions[prev_cardinal]
+        # for the current room set the reverse cardinal to the previous room
+        traversalGraph[currentRoom][reverse_cardinal] = prev_room
+    # update the previous room to the current room
+    prev_room = currentRoom
+
+    next_room = False
+
 
 # TRAVERSAL TEST
 visited_rooms = set()
