@@ -30,6 +30,10 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
+# Create dict with reverse for each direction
+reverse_directions = {'n': 's', 's': 'n', 'e':'w', 'w':'e'}
+
+
 
 
 # TRAVERSAL TEST
